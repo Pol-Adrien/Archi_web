@@ -9,7 +9,7 @@ public class Application {
     public static void main( String[] args ) {
     	try {
     		SpringApplication.run(Application.class, args);
-    		System.out.println("Application démarrée !");
+    		System.out.println("Application demarree !");
     	} catch (Exception e) {
     		System.out.println("Application erreur \n" + e);
     	}
