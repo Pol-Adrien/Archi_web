@@ -1,6 +1,6 @@
 package com.dto;
 
-public class VilleFranceDTO {
+public class VilleFrance {
 	
 	String codeCommuneINSEE;
 	String nomCommune;
@@ -10,10 +10,25 @@ public class VilleFranceDTO {
 	String latitude;
 	String longitude;
 	
-	public VilleFranceDTO() {
+	//Constructeurs
+	
+	public VilleFrance() {
 		super();
 	}
 
+	public VilleFrance(String codeCommuneINSEE, String nomCommune, String codePostal, String libelleAcheminement,
+			String ligne5, String latitude, String longitude) {
+		this.codeCommuneINSEE = codeCommuneINSEE;
+		this.nomCommune = nomCommune;
+		this.codePostal = codePostal;
+		this.libelleAcheminement = libelleAcheminement;
+		this.ligne5 = ligne5;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+
+	//Accesseurs
+	
 	public String getCodeCommuneINSEE() {
 		return codeCommuneINSEE;
 	}
@@ -68,6 +83,13 @@ public class VilleFranceDTO {
 
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+
+	@Override
+	public String toString() {
+		return codeCommuneINSEE + "     " + nomCommune + "     "
+				+ codePostal + "     " + libelleAcheminement + "     " + ligne5 + "     "
+				+ latitude + "     " + longitude;
 	}
 	
 	
