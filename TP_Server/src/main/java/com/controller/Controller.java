@@ -2,6 +2,7 @@ package com.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ public class Controller {
 
 	DAO dao = new DAO();
 
+	@CrossOrigin
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	@ResponseBody
 	public String get(@RequestParam(required = false, value = "codePostal") String codePostal) {
@@ -33,6 +35,7 @@ public class Controller {
 		return villes;
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/post", method = RequestMethod.POST)
 	@ResponseBody
 	public void post(@RequestParam(required = true, value = "codeCommuneINSEE") String codeCommuneINSEE,
@@ -66,6 +69,7 @@ public class Controller {
 		dao.creer(ville);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/put", method = RequestMethod.PUT)
 	@ResponseBody
 	public void put(@RequestParam(required = true, value = "codeCommuneINSEE") String codeCommuneINSEE,
@@ -75,6 +79,7 @@ public class Controller {
 		dao.modifier(codeCommuneINSEE, modif, indiceModif);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void delete(@RequestParam(required = true, value = "codePostal") String codePostal) {
