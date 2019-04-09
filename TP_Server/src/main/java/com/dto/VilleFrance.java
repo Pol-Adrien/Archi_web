@@ -87,9 +87,9 @@ public class VilleFrance {
 
 	@Override
 	public String toString() {
-		return codeCommuneINSEE + "     " + nomCommune + "     "
-				+ codePostal + "     " + libelleAcheminement + "     " + ligne5 + "     "
-				+ latitude + "     " + longitude;
+		return codeCommuneINSEE + " " + nomCommune + " "
+				+ codePostal + " " + libelleAcheminement + " " + ligne5 + " "
+				+ latitude + " " + longitude;
 	}
 	
 	
