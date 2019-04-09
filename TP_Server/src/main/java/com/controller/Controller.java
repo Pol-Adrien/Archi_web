@@ -21,7 +21,7 @@ public class Controller {
 	@CrossOrigin
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	@ResponseBody
-	public String get(@RequestParam(required = false, value = "codePostal") String codePostal) {
+	public List<VilleFrance> get(@RequestParam(required = false, value = "codePostal") String codePostal) {
 		List<VilleFrance> listeVilles;
 		String villes = "";
 		if(codePostal == null) {
@@ -32,7 +32,7 @@ public class Controller {
 		for(VilleFrance v : listeVilles) {
 			villes += v.toString() + "<br>";
 		}
-		return villes;
+		return listeVilles;
 	}
 
 	@CrossOrigin
