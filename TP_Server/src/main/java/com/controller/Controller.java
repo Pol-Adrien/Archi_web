@@ -23,15 +23,16 @@ public class Controller {
 	@ResponseBody
 	public List<VilleFrance> get(@RequestParam(required = false, value = "codePostal") String codePostal) {
 		List<VilleFrance> listeVilles;
-		String villes = "";
 		if(codePostal == null) {
 			listeVilles = dao.lister();
 		} else {
 			listeVilles = dao.trouver(codePostal);
 		}
-		for(VilleFrance v : listeVilles) {
-			villes += v.toString() + "<br>";
-		}
+//		String villes = "";
+//		for(VilleFrance v : listeVilles) {
+//			villes += v.toString() + "<br>";
+//		}
+//		return villes;
 		return listeVilles;
 	}
 

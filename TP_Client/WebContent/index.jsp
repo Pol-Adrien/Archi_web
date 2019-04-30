@@ -11,36 +11,35 @@
 </head>
 <body>
 
-	<%RestTemplate restTemplate = new RestTemplate();
-	VilleFrance[] villes= restTemplate.getForObject("http://localhost:8181/get", VilleFrance[].class);
- 	String[] noms = new String[villes.length];
+	<%
+		RestTemplate restTemplate = new RestTemplate();
+		VilleFrance[] listeVilles= restTemplate.getForObject("http://localhost:8181/get", VilleFrance[].class);
+	 	String[] noms = new String[listeVilles.length];
+	 	String[] codeCommune = new String[listeVilles.length];
 	
-// 	String[] attributsVilles = villes.split(" ");
-// 	out.println(villes[0].getNomCommune());
-// 	out.println("<br>");
-// 	out.println(villes[1]);
-	for(int i = 0; i<villes.length; i++){
-		noms[i] = villes[i].getNomCommune();
-// 		out.println(noms[i]);
-	}
+		HttpSession sess = request.getSession();
+		sess.setAttribute("listeVilles", listeVilles);
+		for (int i = 0; i < listeVilles.length; i++) {
+			noms[i] = listeVilles[i].getNomCommune();
+			codeCommune[i] = listeVilles[i].getCodeCommuneINSEE();
+		}
 	%>
 	
-	<form action="AccueilServ" method="post">
+	<form action="DistanceServlet" method="post">
 		<select name="ville1">
 			<%for(int i = 0; i<noms.length; i++){%> 
-					<option value=<%out.println(noms[i]);%>>
+					<option value=<%out.println(codeCommune[i]);%>>
 					<%out.println(noms[i]);%></option>
 	  		<%}%> 
 		</select>
-		
 		<select name="ville2">
 			<%for(int i = 0; i<noms.length; i++){%> 
-					<option value=<%out.println(noms[i]);%>>
+					<option value=<%out.println(codeCommune[i]);%>>
 					<%out.println(noms[i]);%></option>
 	  		<%}%> 
 		</select>
-	
+		<input type="submit" name="valider">	
 	</form>
-
+	
 </body>
 </html>
